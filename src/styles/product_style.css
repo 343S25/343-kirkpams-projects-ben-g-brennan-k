@@ -1,0 +1,54 @@
+/* product_style.css */
+
+:root {
+    --primary-color: #08499B;
+    --secondary-color: #9CB6D6;
+    --tertiary-color: #cfcfcf;
+}
+
+
+body {
+    background-color: var(--primary-color);
+}
+
+.container {
+    background-color: var(--tertiary-color);
+    border: 2px solid black;
+    padding: 2rem;
+    margin-bottom: 4vw;
+}
+
+.navbar-expand-lg {
+    background-color: var(--secondary-color);
+    border: solid 2px black;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.btn.ml-auto,
+.btn.mr-auto {
+    background-color: var(--tertiary-color);
+    border: 1px solid black;
+}
+
+.btn.ml-auto:hover,
+.btn.mr-auto:hover {
+    background-color: var(--primary-color);
+}
+
+.shop-title {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.btn-submit {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 6px 12px;
+}
+
+.btn-submit:hover {
+    background-color: var(--tertiary-color);
+}

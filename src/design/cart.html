@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/styles/cart_styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+
+<header>
+    <h1>Your Shopping Cart:</h1>
+    <nav>
+        <a class="btn btn-light" id="redirect" href="index.html">Back to Menu</a>
+        <a class="btn btn-light" id="print-button" onclick="window.print(); return;">Print</a>
+        <a><img src="/images/cart.png" alt="Shop-Buddy website logo, depicting a shopping cart with a smiley face"
+                class="cart-image"></a>
+    </nav>
+</header>
+
+<body>
+    <div>
+        <h2 id="kroger-address">Address For Kroger: </h2>
+        <p>1790 E Market St, Harrisonburg, VA 22801</p>
+        <!-- Add kroger address with JS. For now, an example -->
+
+    </div>
+    <div>
+        <h2>Your Items:</h2>
+        <!-- Will dynamically build this list -->
+        <ul>
+            <li>Green Grapes; 1 lb; Price: $3.99</li>
+            <li>Lean Ground Beef; 1 count; Price: $7.99</li>
+            <li>Ramen Noodles; 1 count; Price: $0.99</li>
+            <li>Large Eggs, 12; 1 count; Price: $8.99</li>
+            <li>Classic White Bread; 1 count; Price: $4.99</li>
+            <li>Swiss Cheese; 2 count; Price/each: $4.99</li>
+            <li>Pineapple; 1 count; Price: $5.75</li>
+            <li>Tums; 1 count; Price: 8.59</li>
+            <li>Fuji Apple; 3 count; Price/each $1.20</li>
+        </ul>
+    </div>
+</body>
+<footer>
+    <div>
+        <h2>Total Items: 12</h2> <!-- Will dynamically update this -->
+        <h2>Subtotal: $54.87</h2> <!-- Will dynamically update this -->
+    </div>
+</footer>
+
+
+</html>

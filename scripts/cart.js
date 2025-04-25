@@ -1,4 +1,4 @@
-get_Cart_Items(){
+function get_Cart_Items(){
     return localStorage.getItem("cart");
 }
 

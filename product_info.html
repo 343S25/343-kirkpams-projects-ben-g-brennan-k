@@ -16,24 +16,25 @@
             <a class="navbar-brand"> <img src="images/cart.png"
                     alt="Shop-Buddy website logo, depicting a shopping cart with a smiley face" width="50" height="50">
             </a> <span class="shop-title navbar-brand mb-0 h1">Shop-Buddy</span>
-                <a class="btn mr-auto" id="cart-button" href="./cart.html">View Cart</a>
-                <a class="btn ml-auto" href="index.html">Menu</a>
+            <a class="btn mr-auto" id="cart-button" href="./cart.html">View Cart</a>
+            <a class="btn ml-auto" href="index.html">Menu</a>
         </nav>
     </header>
     <main class="container my-4">
         <div class="row">
-            <div class="col-md-6"><img src="images/test_milk.png"
+            <div class="col-md-6"><img id="product-img" src="images/test_milk.png"
                     alt="Image containing a gallon of Tru-Moo Chocolate Milk" class="img-fluid"> </div>
             <div class="col-md-6">
-                <h1 class="my-3">Product Name</h1>
-                <h2 class="text-muted">$19.99</h2>
-                <p class="mt-4"> This is a detailed description of the product. It highlights key features, benefits,
+                <h1 class="my-3" id="product-name">Product Name</h1>
+                <h2 class="text-muted" id="product-price">$19.99</h2>
+                <p class="mt-4" id="product-description"> This is a detailed description of the product. It highlights
+                    key features, benefits,
                     and any relevant specifications that help customers decide.
                 <form class="add-to-cart d-flex align-items-center my-3">
                     <label for="quantity" class="mr-2 font-weight-bold">Add to cart:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control mr-2"
+                    <input type="number" id="quantity" value="1" min="1" class="form-control mr-2"
                         style="width: 80px;">
-                    <button type="submit" class="btn-submit">Submit</button>
+                    <button type="button" class="btn-submit">Submit</button>
                 </form>
 
             </div>
@@ -41,5 +42,7 @@
     </main>
 
 </body>
+<script src="scripts/product_info.js"></script>
+</script>
 
 </html>

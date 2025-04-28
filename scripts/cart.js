@@ -8,7 +8,7 @@ function get_Cart_Items() {
 
 function add_Cart_Item(item) {
   let items = get_Cart_Items();
-  let unique_item = items.find((i) => i.id);
+  let unique_item = items.find((i) => i.id == item.id);
   if (unique_item != undefined) {
     unique_item.quantity += 1;
   } else {

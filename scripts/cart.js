@@ -20,7 +20,7 @@ function add_Cart_Item(item) {
 
 function calculate_cart_subtotal(){
     const items = get_Cart_Items();
-    const sum = items.reduce((accumulator, current) => accumulator + current.price, 0);
+    const sum = items.reduce((accumulator, current) => accumulator + (current.price * current.quantity), 0);
     return sum;
 }
 
@@ -33,16 +33,4 @@ function calculate_cart_subtotal(){
 //  }
 // cart is a list of these items
 
-(function(){
-    let sidebar_list = document.getElementById("cart-sidebar");
-    const items = get_Cart_Items();
-    items.forEach(element => {
-        let li = document.createElement("li");
-        li.textContent = element.name;
-        sidebar_list.appendChild(li);
-    });
-    let sidebar_subtotal = document.getElementById("sidebar-subtotal");
-    let total = calculate_cart_subtotal();
-    sidebar_subtotal.textContent = `Subtotal: ${total}`
-})();
 

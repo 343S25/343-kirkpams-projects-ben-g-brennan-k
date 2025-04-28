@@ -60,3 +60,17 @@
 
 <script src="scripts/fetch.js"></script>
 <script src="scripts/cart.js"></script>
+<script>
+    (function () {
+        let sidebar_list = document.getElementById("cart-sidebar");
+        const items = get_Cart_Items();
+        items.forEach(element => {
+            let li = document.createElement("li");
+            li.textContent = element.name;
+            sidebar_list.appendChild(li);
+        });
+        let sidebar_subtotal = document.getElementById("sidebar-subtotal");
+        let total = calculate_cart_subtotal();
+        sidebar_subtotal.textContent = `Subtotal: ${total.toFixed(2)}`
+    })();
+</script>

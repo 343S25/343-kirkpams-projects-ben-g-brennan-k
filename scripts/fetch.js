@@ -67,6 +67,12 @@ function update_grid(products) {
   });
 }
 
+
+//when the back button is pressed on the browser, reload the page
+window.addEventListener('popstate', function (event) {
+  window.location.reload();
+});
+
 document.getElementById('searchSubmitButton')
   .addEventListener('click', search_json);
 

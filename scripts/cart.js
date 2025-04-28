@@ -18,6 +18,12 @@ function add_Cart_Item(item) {
   localStorage.setItem('cart', (JSON.stringify(items)));
 }
 
+function calculate_cart_subtotal(){
+    const items = get_Cart_Items();
+    const sum = items.reduce((accumulator, current) => accumulator + current.price, 0);
+    return sum;
+}
+
 // Each item in localstorage is represented as:
 //  {
 //   id: Number
@@ -35,5 +41,8 @@ function add_Cart_Item(item) {
         li.textContent = element.name;
         sidebar_list.appendChild(li);
     });
+    let sidebar_subtotal = document.getElementById("sidebar-subtotal");
+    let total = calculate_cart_subtotal();
+    sidebar_subtotal.textContent = `Subtotal: ${total}`
 })();
 

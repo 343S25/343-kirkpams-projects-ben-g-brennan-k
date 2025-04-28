@@ -26,3 +26,14 @@ function add_Cart_Item(item) {
 //   price: Number
 //  }
 // cart is a list of these items
+
+(function(){
+    let sidebar_list = document.getElementById("cart-sidebar");
+    const items = get_Cart_Items();
+    items.forEach(element => {
+        let li = document.createElement("li");
+        li.textContent = element.name;
+        sidebar_list.appendChild(li);
+    });
+})();
+

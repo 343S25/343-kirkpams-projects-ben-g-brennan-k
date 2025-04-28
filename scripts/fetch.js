@@ -13,6 +13,7 @@ async function get_all_products(test_mode = false) {
 
 
 async function search_json(e) {
+
   e.preventDefault();
   const q = document.querySelector('.form-control').value.trim();
 
@@ -27,6 +28,11 @@ async function search_json(e) {
     // repopulate
     const results = filter_json_for_grid(data);
     update_grid(results);
+
+    //add ?search=q to the url
+    const url = new URL(window.location.href);
+    url.searchParams.set('search', q);
+    window.history.pushState({}, '', url);
   } catch (err) {
     console.error(err);
   }
@@ -65,7 +71,16 @@ document.getElementById('searchSubmitButton')
   .addEventListener('click', search_json);
 
 (async function () {
-  let all_products = await get_all_products(true);
-  let display_products = filter_json_for_grid(all_products);
-  update_grid(display_products);
+  //get url parameters from the current page
+  const urlParams = new URLSearchParams(window.location.search);
+  const search = urlParams.get('search');
+  if (search !== null) {
+    document.querySelector('.form-control').value = search;
+    document.getElementById('searchSubmitButton').click();
+  }
+  else {
+    let all_products = await get_all_products(true);
+    let display_products = filter_json_for_grid(all_products);
+    update_grid(display_products);
+  }
 })();

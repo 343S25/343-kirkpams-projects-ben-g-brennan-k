@@ -25,12 +25,12 @@
     <div>
         <h2 id="kroger-address">Address For a Local Grocery Store: </h2>
         <p>Kroger: 1790 E Market St, Harrisonburg, VA 22801</p>
-        <!-- Add kroger address with JS. For now, an example -->
+        <!-- TODO: Add store address with JS -->
 
     </div>
     <div>
         <h2>Your Items:</h2>
-        <!-- Will dynamically build this list -->
+        <!-- TODO: Dynamically build this list -->
         <ul>
             <li>Green Grapes; 1 lb; Price: $3.99</li>
             <li>Lean Ground Beef; 1 count; Price: $7.99</li>
@@ -46,10 +46,21 @@
 </body>
 <footer>
     <div>
-        <h2>Total Items: 12</h2> <!-- Will dynamically update this -->
-        <h2>Subtotal: $54.87</h2> <!-- Will dynamically update this -->
+        <h2 id="total-items">Total Items: 0</h2>
+        <h2 id="cart-subtotal">Subtotal: 0</h2>
     </div>
 </footer>
 
 
 </html>
+
+<script src="scripts/cart.js"></script>
+<script>
+    let cart_subtotal = document.getElementById("cart-subtotal");
+    let total = calculate_cart_subtotal();
+    cart_subtotal.textContent = `Subtotal: ${total.toFixed(2)}`
+
+    let total_items = document.getElementById("total-items");
+    let item_count = calculate_item_count();
+    total_items.textContent = `Total Items: ${item_count}`
+</script>

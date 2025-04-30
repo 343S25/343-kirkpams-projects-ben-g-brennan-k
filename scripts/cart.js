@@ -18,7 +18,7 @@ function add_Cart_Item(item) {
   console.log(`Added: ${item.title}`);
 }
 
-  function remove_Cart_Item(item) {
+function remove_Cart_Item(item) {
   console.log(`Attempting to remove: ${item.textContent}`);
   let items = get_Cart_Items();
   let unique_item = items.find((i) => i.name == item.name);
@@ -28,7 +28,6 @@ function add_Cart_Item(item) {
     if (unique_item.quantity <= 0) {
       items.splice(items.indexOf(unique_item), 1);
     }
-    
   }
   localStorage.setItem('cart', (JSON.stringify(items)));
 }
@@ -41,6 +40,15 @@ function calculate_cart_subtotal() {
   const sum = items.reduce(
       (accumulator, current) =>
           accumulator + (current.price * current.quantity),
+      0);
+  return sum;
+}
+
+function calculate_item_count() {
+  const items = get_Cart_Items();
+  const sum = items.reduce(
+      (accumulator, current) =>
+          accumulator + current.quantity,
       0);
   return sum;
 }

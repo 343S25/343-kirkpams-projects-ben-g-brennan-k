@@ -17,15 +17,15 @@ async function search_json(e) {
   e.preventDefault();
   const q = document.querySelector('.form-control').value.trim();
 
-  let cached_search_unparsed = localStorage.getItem("cached_search");
+  let cached_search_unparsed = localStorage.getItem('cached_search');
   let cached_search = undefined;
-  if (cached_search_unparsed != undefined){
+  if (cached_search_unparsed != undefined) {
     cached_search = JSON.parse(cached_search_unparsed);
   }
 
   // Don't refetch data we already have
   if (cached_search != undefined && q == cached_search.search_term) {
-    console.log("Searching for an item (Locally)");
+    console.log('Searching for an item (Locally)');
     document.getElementById('grid-boxes').innerHTML = '';
     update_grid(cached_search.result);
     // add ?search=q to the url
@@ -55,9 +55,8 @@ async function search_json(e) {
 
     // Cache the successful search
     cached_search = {search_term: q, result: results};
-    localStorage.setItem("cached_search", (JSON.stringify(cached_search)))
+    localStorage.setItem('cached_search', (JSON.stringify(cached_search)))
 
-    console.log(cached_search);
   } catch (err) {
     console.error(err);
   }
@@ -88,9 +87,12 @@ function update_grid(products) {
     grid_item.querySelector('img').alt = `An image of: ${product_name}`;
     // set link to product page with id
     grid_item.querySelector('a').href = `product_info.html?id=${element.id}`;
-
     list.appendChild(grid_item);
   });
+
+  if (!list.hasChildNodes()) {
+    alert("Item not found");
+  }
 }
 
 let cached_search = {search_term: undefined, result: undefined};

@@ -17,8 +17,14 @@ async function search_json(e) {
   e.preventDefault();
   const q = document.querySelector('.form-control').value.trim();
 
-  // Don't refetch data we already have on search (Possibly add to localstorage to extend usage?)
-  if (q == cached_search.search_term && cached_search.result != undefined) {
+  let cached_search_unparsed = localStorage.getItem("cached_search");
+  let cached_search = undefined;
+  if (cached_search_unparsed != undefined){
+    cached_search = JSON.parse(cached_search_unparsed);
+  }
+
+  // Don't refetch data we already have
+  if (cached_search != undefined && q == cached_search.search_term) {
     console.log("Searching for an item (Locally)");
     document.getElementById('grid-boxes').innerHTML = '';
     update_grid(cached_search.result);
@@ -48,8 +54,9 @@ async function search_json(e) {
     window.history.pushState({}, '', url);
 
     // Cache the successful search
-    cached_search.search_term = q;
-    cached_search.result = results;
+    cached_search = {search_term: q, result: results};
+    localStorage.setItem("cached_search", (JSON.stringify(cached_search)))
+
     console.log(cached_search);
   } catch (err) {
     console.error(err);

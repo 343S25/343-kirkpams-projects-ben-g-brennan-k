@@ -52,6 +52,7 @@
     <div class="sidebar">
         <h2>My Shopping Cart</h2>
         <ul id="cart-sidebar">
+            <p>Click to remove item<p>
         </ul>
         <h2 id="sidebar-subtotal">Subtotal: </h2>
     </div>
@@ -61,16 +62,26 @@
 <script src="scripts/fetch.js"></script>
 <script src="scripts/cart.js"></script>
 <script>
-    (function () {
+    function load_Index() {
+        
         let sidebar_list = document.getElementById("cart-sidebar");
         const items = get_Cart_Items();
         items.forEach(element => {
+            let anchor = document.createElement('a');
             let li = document.createElement("li");
-            li.textContent = element.name;
-            sidebar_list.appendChild(li);
+            li.textContent = `${element.name}: ${element.quantity}`;
+            anchor.appendChild(li);
+            sidebar_list.appendChild(anchor);
+            anchor.addEventListener("click", () => {
+                remove_Cart_Item(element);
+                li.remove();
+                location.reload();
+            });
         });
         let sidebar_subtotal = document.getElementById("sidebar-subtotal");
         let total = calculate_cart_subtotal();
-        sidebar_subtotal.textContent = `Subtotal: ${total.toFixed(2)}`
-    })();
+        sidebar_subtotal.textContent = `Subtotal: ${total.toFixed(2)}` 
+    }
+    window.addEventListener('DOMContentLoaded', load_Index);
+
 </script>

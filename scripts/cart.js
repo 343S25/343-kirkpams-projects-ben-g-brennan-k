@@ -32,9 +32,6 @@ function remove_Cart_Item(item) {
   localStorage.setItem('cart', (JSON.stringify(items)));
 }
 
-// function refresh_ul(ul){
-// }
-
 function calculate_cart_subtotal() {
   const items = get_Cart_Items();
   const sum = items.reduce(

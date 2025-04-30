@@ -30,24 +30,14 @@
     </div>
     <div>
         <h2>Your Items:</h2>
-        <!-- TODO: Dynamically build this list -->
-        <ul>
-            <li>Green Grapes; 1 lb; Price: $3.99</li>
-            <li>Lean Ground Beef; 1 count; Price: $7.99</li>
-            <li>Ramen Noodles; 1 count; Price: $0.99</li>
-            <li>Large Eggs, 12; 1 count; Price: $8.99</li>
-            <li>Classic White Bread; 1 count; Price: $4.99</li>
-            <li>Swiss Cheese; 2 count; Price/each: $4.99</li>
-            <li>Pineapple; 1 count; Price: $5.75</li>
-            <li>Tums; 1 count; Price: 8.59</li>
-            <li>Fuji Apple; 3 count; Price/each $1.20</li>
+        <ul id="display-list">
         </ul>
     </div>
 </body>
 <footer>
     <div>
-        <h2 id="total-items">Total Items: 0</h2>
-        <h2 id="cart-subtotal">Subtotal: 0</h2>
+        <h2 id="total-items">Total Items: </h2>
+        <h2 id="cart-subtotal">Subtotal: </h2>
     </div>
 </footer>
 
@@ -63,4 +53,24 @@
     let total_items = document.getElementById("total-items");
     let item_count = calculate_item_count();
     total_items.textContent = `Total Items: ${item_count}`
+
+    function load_cart_page() {
+        let ul = document.getElementById("display-list");
+
+        const items = get_Cart_Items();
+        items.forEach(element => {
+            let anchor = document.createElement('a');
+            let li = document.createElement("li");
+            li.textContent = `${element.name}; Count: ${element.quantity}; Price: ${element.price}`;
+            anchor.appendChild(li);
+            ul.appendChild(anchor);
+            anchor.addEventListener("click", () => {
+                remove_Cart_Item(element);
+                li.remove();
+                location.reload();
+            });
+        });
+    }
+    load_cart_page();
+
 </script>

@@ -19,7 +19,14 @@ async function search_json(e) {
 
   // Form validation. Avoid a pointless fetch/bad input.
   if (q == '' || q == undefined) {
-    get_all_products();
+    let all_products = await get_all_products(true);
+    let display_products = filter_json_for_grid(all_products);
+    document.getElementById('grid-boxes').innerHTML = '';
+    update_grid(display_products);
+
+    const baseUrl = location.href.split('?')[0];
+    window.history.pushState({}, '', baseUrl);
+    return;
   }
 
   let cached_search_unparsed = localStorage.getItem('cached_search');

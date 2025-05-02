@@ -17,6 +17,11 @@ async function search_json(e) {
   e.preventDefault();
   const q = document.querySelector('.form-control').value.trim();
 
+  // Form validation. Avoid a pointless fetch/bad input.
+  if (q == '' || q == undefined) {
+    get_all_products();
+  }
+
   let cached_search_unparsed = localStorage.getItem('cached_search');
   let cached_search = undefined;
   if (cached_search_unparsed != undefined) {
@@ -91,7 +96,7 @@ function update_grid(products) {
   });
 
   if (!list.hasChildNodes()) {
-    alert("Item not found");
+    alert('Item not found');
   }
 }
 

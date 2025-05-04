@@ -50,6 +50,12 @@ function calculate_item_count() {
   return sum;
 }
 
+function truncateString(str, maxLength, ending = "...") {
+  if (str.length > maxLength) {
+    return str.slice(0, maxLength) + ending;
+  }
+  return str;
+}
 // Each item in localstorage is represented as:
 //  {
 //   id: Number

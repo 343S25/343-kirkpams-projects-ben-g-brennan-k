@@ -7,6 +7,10 @@ h1{
     padding-left: 2vw;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -73,6 +77,10 @@ footer {
         margin: 0;
         padding: 0;
         background-color: white;
+    }
+
+    ul p {
+        display: none;
     }
 
     #redirect,

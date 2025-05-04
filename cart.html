@@ -23,12 +23,6 @@
 
 <body>
     <div>
-        <h2 id="kroger-address">Address For a Local Grocery Store: </h2>
-        <p>Kroger: 1790 E Market St, Harrisonburg, VA 22801</p>
-        <!-- TODO: Add store address with JS -->
-
-    </div>
-    <div>
         <h2>Your Items:</h2>
         <ul id="display-list">
         </ul>
@@ -56,12 +50,14 @@
 
     function load_cart_page() {
         let ul = document.getElementById("display-list");
-
+        let deleteMsg = document.createElement('p');
+        deleteMsg.innerText = "Click to remove an item";
+        ul.appendChild(deleteMsg);
         const items = get_Cart_Items();
         items.forEach(element => {
             let anchor = document.createElement('a');
             let li = document.createElement("li");
-            li.textContent = `${element.name}; Count: ${element.quantity}; Price: ${element.price}`;
+            li.textContent = `${element.name}; Quantity: ${element.quantity}; Price: ${element.price}`;
             anchor.appendChild(li);
             ul.appendChild(anchor);
             anchor.addEventListener("click", () => {

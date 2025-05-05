@@ -18,7 +18,9 @@
         <a class="btn btn-light" id="print-button" onclick="window.print(); return;">Print</a>
         <a><img src="images/cart.png" alt="Shop-Buddy website logo, depicting a shopping cart with a smiley face"
                 class="cart-image"></a>
+
     </nav>
+
 </header>
 
 <body>
@@ -33,6 +35,13 @@
         <h2 id="total-items">Total Items: </h2>
         <h2 id="cart-subtotal">Subtotal: </h2>
     </div>
+
+    <form action="#" id="import-form">
+        <label for="import-file">Import cart from JSON: </label>
+        <input type="file" name="import-file" id="import-file" accept="application/json">
+        <button id="import" type="button">Import cart</button>
+        <button id="export" type="button">Save Cart to JSON</button>
+    </form>
 </footer>
 
 

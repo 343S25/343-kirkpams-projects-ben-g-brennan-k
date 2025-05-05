@@ -43,14 +43,12 @@ function calculate_cart_subtotal() {
 
 function calculate_item_count() {
   const items = get_Cart_Items();
-  const sum = items.reduce(
-      (accumulator, current) =>
-          accumulator + current.quantity,
-      0);
+  const sum =
+      items.reduce((accumulator, current) => accumulator + current.quantity, 0);
   return sum;
 }
 
-function truncateString(str, maxLength, ending = "...") {
+function truncateString(str, maxLength, ending = '...') {
   if (str.length > maxLength) {
     return str.slice(0, maxLength) + ending;
   }
@@ -64,3 +62,31 @@ function truncateString(str, maxLength, ending = "...") {
 //   price: Number
 //  }
 // cart is a list of these items
+
+function download() {
+  const content = localStorage.getItem("cart");
+  const filename = 'shopping_data.json'
+  const contentType = 'application/json';
+  let a = document.createElement('a');
+  let blob = new Blob([content], {'type': contentType});
+  a.href = window.URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+}
+
+async function load_data() {
+  let file_dom = document.getElementById('import-file');
+  if (file_dom.value == 0) {
+    alert("Please Select Data to Import");
+  }
+  else {
+    let file = file_dom.files[0];
+    const text = await new Response(file).text();
+    localStorage.setItem('cart', text);
+    window.location.reload();
+  }
+}
+
+document.getElementById('export').addEventListener('click', download);
+
+document.getElementById('import').addEventListener('click', load_data);

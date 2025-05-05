@@ -11,6 +11,18 @@ a {
     text-decoration: none;
 }
 
+button, form {
+    position: relative;
+    margin-left: 1vw;
+    margin-top: 0.5vh;
+}
+
+label {
+    background-color: var(--tertiary-color);
+    border: 1px solid black;
+    padding: 0.25em;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -70,6 +82,11 @@ footer {
 
 
 @media print {
+
+
+    button, form {
+        display: none;
+    }
 
     body {
         width: 11in;

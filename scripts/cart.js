@@ -10,7 +10,7 @@ function add_Cart_Item(item, count) {
   let items = get_Cart_Items();
   let unique_item = items.find((i) => i.id == item.id);
   if (unique_item != undefined) {
-    unique_item.quantity += count;
+    unique_item.quantity = Number(count) + Number(unique_item.quantity);
   } else {
     items.push({ id: item.id, name: item.title, quantity: count, price: item.price });
   }

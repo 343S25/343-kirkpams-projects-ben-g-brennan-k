@@ -6,13 +6,13 @@ function get_Cart_Items() {
   return [];
 }
 
-function add_Cart_Item(item) {
+function add_Cart_Item(item, count) {
   let items = get_Cart_Items();
   let unique_item = items.find((i) => i.id == item.id);
   if (unique_item != undefined) {
-    unique_item.quantity += 1;
+    unique_item.quantity += count;
   } else {
-    items.push({ id: item.id, name: item.title, quantity: 1, price: item.price });
+    items.push({ id: item.id, name: item.title, quantity: count, price: item.price });
   }
   localStorage.setItem('cart', (JSON.stringify(items)));
   console.log(`Added: ${item.title}`);

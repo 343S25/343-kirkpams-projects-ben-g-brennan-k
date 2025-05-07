@@ -86,8 +86,7 @@ function update_grid(products) {
   let list = document.getElementById('grid-boxes');
   let template = document.getElementById('template');
 
-  const trimmedProducts = products.slice(0, 18);
-  trimmedProducts.forEach(element => {
+  products.forEach(element => {
     let grid_item = template.content.cloneNode(true);
 
     // Update the product name here

@@ -86,6 +86,9 @@ function update_grid(products) {
   let list = document.getElementById('grid-boxes');
   let template = document.getElementById('template');
 
+  //center image in the grid item
+  list.style.textAlign = 'center';
+
   products.forEach(element => {
     let grid_item = template.content.cloneNode(true);
 
@@ -103,6 +106,8 @@ function update_grid(products) {
 
   if (!list.hasChildNodes()) {
     alert('Item not found');
+    //travel to main page
+    window.location.href = 'index.html';
   }
 }
 

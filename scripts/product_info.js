@@ -33,8 +33,8 @@
     if (quantity < 1) {
       alert('Please select a quantity greater than 0.');
     } else {
-      alert(`You have selected ${quantity} items.`);
       add_Cart_Item(currItem, quantity);
+      alert(`You have selected ${quantity} items.`);
     }
   });
 })();

@@ -93,5 +93,10 @@ if (window.location.pathname == '/cart.html') {
   document.getElementById('export').addEventListener('click', download);
 
   document.getElementById('import').addEventListener('click', load_data);
+
+  document.getElementById('clear').addEventListener('click', function () {
+    localStorage.removeItem('cart');
+    window.location.reload();
+  });
 }
 

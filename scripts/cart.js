@@ -88,8 +88,8 @@ async function load_data() {
 }
 
 
-//if script is run in the cart page, then run this code
-if (window.location.pathname == '/cart.html') {
+//if the last path is cart.html, then add the event listeners to the buttons
+if (window.location.pathname.endsWith('cart.html')) {
   document.getElementById('export').addEventListener('click', download);
 
   document.getElementById('import').addEventListener('click', load_data);

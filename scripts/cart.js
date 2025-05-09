@@ -44,7 +44,7 @@ function calculate_cart_subtotal() {
 function calculate_item_count() {
   const items = get_Cart_Items();
   const sum =
-    items.reduce((accumulator, current) => accumulator + current.quantity, 0);
+    items.reduce((accumulator, current) => Number(accumulator) + Number(current.quantity), 0);
   return sum;
 }
 
